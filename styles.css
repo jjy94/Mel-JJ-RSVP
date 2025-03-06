@@ -1,0 +1,91 @@
+/* Reset default styles for consistency */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling - clean white background with a subtle texture */
+body {
+    background-color: #FFFFFF; /* Pure white base */
+    font-family: 'Georgia', serif; /* Elegant, classic font */
+    color: #333333; /* Dark gray for readability */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url('data:image/svg+xml,%3Csvg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%23E07A5F" fill-opacity="0.05"%3E%3Ccircle cx="10" cy="10" r="1"/%3E%3C/g%3E%3C/svg%3E'); /* Subtle burnt orange dots */
+}
+
+/* Game container - centered card-like area */
+#game-container {
+    background-color: rgba(255, 255, 255, 0.95); /* Slightly translucent white */
+    border: 2px solid #E07A5F; /* Burnt orange border */
+    border-radius: 10px;
+    padding: 30px;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(61, 90, 128, 0.1); /* Royal blue shadow */
+}
+
+/* Story text - elegant and readable */
+#story-text {
+    font-size: 1.2em;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    color: #3D5A80; /* Royal blue for the narrative */
+}
+
+/* Choices section */
+#choices {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Buttons - wedding-themed with burnt orange and royal blue */
+button {
+    background-color: #E07A5F; /* Burnt orange */
+    color: #FFFFFF; /* White text */
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #3D5A80; /* Royal blue on hover */
+}
+
+/* Input fields - clean and simple with a blue accent */
+input[type="text"] {
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #3D5A80; /* Royal blue border */
+    border-radius: 5px;
+    width: 80%;
+    margin-bottom: 10px;
+    font-family: 'Georgia', serif;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #E07A5F; /* Burnt orange focus */
+    box-shadow: 0 0 5px rgba(224, 122, 95, 0.5);
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 500px) {
+    #game-container {
+        padding: 20px;
+        margin: 10px;
+    }
+    #story-text {
+        font-size: 1em;
+    }
+    button, input[type="text"] {
+        font-size: 0.9em;
+    }
+}
