@@ -10,7 +10,9 @@ body {
     background-image: url('https://jjy94.github.io/Mel-JJ-RSVP/RSVP%20BG.png'); /* Your downloaded file */
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: center; /* Centers the image */
     background-attachment: fixed;
+    
     font-family: 'Georgia', serif; /* Elegant, classic font */
     color: #333333; /* Dark gray for readability */
     display: flex;
