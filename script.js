@@ -3,13 +3,13 @@ let responses = {};
 
 const scenes = [
     {
-        text: "You receive a gilded scroll from [Your Names]. A grand wedding feast is nigh, but only the worthy may attend. Will you accept the quest?",
+        text: "You receive a gilded scroll from JJ and Melanie. An intimate wedding is nigh, but only the worthy may attend. Will you accept the quest?",
         choices: ["Yes, I’ll attend!", "No, I must decline"],
         key: "rsvp"
     },
     {
-        text: "You set off across the Enchanted Valley. The feast requires provisions—what dish shall you bring?",
-        choices: ["Roasted Chicken", "Vegetarian Delight", "Gluten-Free Treasure"],
+        text: "The scroll also asked whether you have any restrictions regarding food (ie. Allergies), what are these restrictions?",
+        input: true,
         key: "meal"
     },
     {
