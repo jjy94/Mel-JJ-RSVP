@@ -23,7 +23,7 @@ const scenes = [
         key: "name"
     },
     {
-        text: "Welcome, brave soul, to the Wedding Feast of [Your Names]! Your quest is complete—see you on [Wedding Date]!",
+        text: "Welcome, brave soul, to the Wedding Feast of JJ and Mel! Your quest is complete—see you on June 7, 2025!",
         end: true
     }
 ];
@@ -65,7 +65,7 @@ function updateScene() {
 }
 
 function submitToGoogleSheets() {
-    fetch("https://script.google.com/macros/s/[YOUR_SCRIPT_ID]/exec", {
+    fetch("https://script.google.com/macros/s/AKfycbxRQFIYQIC1mPthSSSnToePpPKgYPqzqDNAeWG6eFRoKk1QwiNaDcRwkyv3vVVselhL8A/exec", {
         method: "POST",
         body: JSON.stringify(responses)
     }).then(() => alert("Your quest is logged! See you at the wedding!"));
