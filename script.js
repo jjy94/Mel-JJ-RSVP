@@ -75,5 +75,5 @@ function submitToGoogleSheets() {
     fetch("https://script.google.com/macros/s/AKfycbxRQFIYQIC1mPthSSSnToePpPKgYPqzqDNAeWG6eFRoKk1QwiNaDcRwkyv3vVVselhL8A/exec", {
         method: "POST",
         body: JSON.stringify(responses)
-    }).then(() => alert("Your quest is logged! See you at the wedding!"));
+    }).then(() => alert("Your entry has been logged! See you at the wedding! (and feel free to close this page if you see this)"));
 }
