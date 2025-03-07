@@ -4,7 +4,7 @@ let responses = {};
 const scenes = [
     {
         text: "It was a warm and cozy night filled only with the sounds of crickets, when there was a sudden knock at the door."
-        // No choices - narrative only
+        choices: ["Who’s there?"]
     },
     {
         text: "You receive a gilded scroll from Mel and JJ. A grand wedding feast is nigh, but only the worthy may attend. Will you accept the quest?",
