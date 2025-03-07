@@ -3,8 +3,12 @@ let responses = {};
 
 const scenes = [
     {
-        text: "It was a warm, cozy night when there was a sudden knock at the door.",
-        choices: ["Who’s there?"]
+        text: "T'was a warm, cozy night, filled only with the sounds of dogs and crickets.",
+        choices: ["..."]
+    },
+    {
+        text: "You were closing your book as you planned to retire for the night, when suddenly there was a knock at your door",
+        choices: ["Who's there?"]
     },
     {
         text: "You receive a gilded scroll from Mel and JJ. A grand wedding feast is nigh, but only the worthy may attend. Will you accept the quest?",
