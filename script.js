@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function nextScene(choice) {
     const current = scenes[currentScene];
-    if (currentScene === 1) { // Play knock sound when leaving Scene 0
+    if (currentScene === 0) { // Play knock sound when leaving Scene 0
         document.getElementById("knock-sound").play();
     }
     if (current.key) {
@@ -95,7 +95,7 @@ function updateScene() {
 }
 
 function submitToGoogleSheets() {
-    fetch("https://script.google.com/macros/s/[YOUR_SCRIPT_ID]/exec", {
+    fetch("https://script.google.com/macros/s/AKfycbxRQFIYQIC1mPthSSSnToePpPKgYPqzqDNAeWG6eFRoKk1QwiNaDcRwkyv3vVVselhL8A/exec", {
         method: "POST",
         body: JSON.stringify(responses)
     }).then(() => alert("Your quest is logged! See you at the wedding!"));
