@@ -3,17 +3,17 @@ let responses = {};
 
 const scenes = [
     {
-        text: "T'was was a warm and peaceful night filled with the sounds of birds and crickets, when there was a sudden knock at the door."
+        text: "It was a warm and cozy night filled only with the sounds of crickets, when there was a sudden knock at the door."
         // No choices - narrative only
     },
     {
-        text: "You receive a gilded scroll from JJ and Melanie. An intimate wedding is nigh, but only the worthy may attend. Will you accept the quest?",
+        text: "You receive a gilded scroll from Mel and JJ. A grand wedding feast is nigh, but only the worthy may attend. Will you accept the quest?",
         choices: ["Yes, I’ll attend!", "No, I must decline"],
         key: "rsvp"
     },
     {
-        text: "The scroll also asked whether you have any restrictions regarding food (ie. Allergies), what are these restrictions?",
-        input: true,
+        text: "You set off across the Enchanted Valley. The feast requires provisions—what dish shall you bring?",
+        choices: ["Roasted Chicken", "Vegetarian Delight", "Gluten-Free Treasure"],
         key: "meal"
     },
     {
@@ -27,13 +27,22 @@ const scenes = [
         key: "name"
     },
     {
-        text: "Welcome, brave soul, to the Wedding Feast of JJ and Mel! Your quest is complete—see you on June 7, 2025!",
+        text: "Welcome, brave soul, to the Wedding Feast of Mel and JJ! Your quest is complete—see you on [Wedding Date]!",
         end: true
     }
 ];
 
 function nextScene(choice) {
-    responses[scenes[currentScene].key] = choice;
+    const current = scenes[currentScene];
+    if (current.choices) {
+        responses[current.key] = choice;
+    } else if (current.input && choice) {
+        responses[current.key] = choice;
+    }
+    // Play knock sound when moving from Scene 0 to Scene 1
+    if (currentScene === 0) {
+        document.getElementById("knock-sound").play();
+    }
     currentScene++;
     updateScene();
 }
@@ -46,10 +55,6 @@ function updateScene() {
     const choicesDiv = document.getElementById("choices");
     choicesDiv.innerHTML = "";
 
-    //knocking sound
-    if (currentScene === 1) {
-        document.getElementById("knock-sound").play();
-    }
     if (scene.choices) {
         scene.choices.forEach(choice => {
             const button = document.createElement("button");
@@ -70,11 +75,17 @@ function updateScene() {
         submit.innerText = "Finish Quest";
         submit.onclick = submitToGoogleSheets;
         choicesDiv.appendChild(submit);
+    } else {
+        // Narrative-only scene
+        const continueButton = document.createElement("button");
+        continueButton.innerText = "Continue";
+        continueButton.onclick = () => nextScene(null);
+        choicesDiv.appendChild(continueButton);
     }
 }
 
 function submitToGoogleSheets() {
-    fetch("https://script.google.com/macros/s/AKfycbxRQFIYQIC1mPthSSSnToePpPKgYPqzqDNAeWG6eFRoKk1QwiNaDcRwkyv3vVVselhL8A/exec", {
+    fetch("https://script.google.com/macros/s/[YOUR_SCRIPT_ID]/exec", {
         method: "POST",
         body: JSON.stringify(responses)
     }).then(() => alert("Your quest is logged! See you at the wedding!"));
