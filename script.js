@@ -31,7 +31,6 @@ const scenes = [
         nextScene: 5,
         key: "allergies"
     },
-    },
     {
         text: "A bard stops you, seeking a tune for the celebration. What song do you suggest?",
         input: true,
