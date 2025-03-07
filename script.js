@@ -3,7 +3,7 @@ let responses = {};
 
 const scenes = [
     {
-        text: "It was a warm and cozy night filled only with the sounds of crickets, when there was a sudden knock at the door."
+        text: "It was a warm, cozy night when there was a sudden knock at the door.",
         choices: ["Who’s there?"]
     },
     {
@@ -32,16 +32,32 @@ const scenes = [
     }
 ];
 
+// Initialize game elements when the page loads
+document.addEventListener("DOMContentLoaded", () => {
+    const gameContainer = document.createElement("div");
+    gameContainer.id = "game-container";
+
+    const storyText = document.createElement("p");
+    storyText.id = "story-text";
+    gameContainer.appendChild(storyText);
+
+    const choicesDiv = document.createElement("div");
+    choicesDiv.id = "choices";
+    gameContainer.appendChild(choicesDiv);
+
+    document.body.appendChild(gameContainer);
+
+    // Start the game
+    updateScene();
+});
+
 function nextScene(choice) {
     const current = scenes[currentScene];
-    if (current.choices) {
-        responses[current.key] = choice;
-    } else if (current.input && choice) {
-        responses[current.key] = choice;
-    }
-    // Play knock sound when moving from Scene 0 to Scene 1
-    if (currentScene === 0) {
+    if (current.choices && current.choices.length === 1 && choice === "Who’s there?") {
         document.getElementById("knock-sound").play();
+    }
+    if (current.key) {
+        responses[current.key] = choice;
     }
     currentScene++;
     updateScene();
@@ -75,12 +91,6 @@ function updateScene() {
         submit.innerText = "Finish Quest";
         submit.onclick = submitToGoogleSheets;
         choicesDiv.appendChild(submit);
-    } else {
-        // Narrative-only scene
-        const continueButton = document.createElement("button");
-        continueButton.innerText = "Continue";
-        continueButton.onclick = () => nextScene(null);
-        choicesDiv.appendChild(continueButton);
     }
 }
 
