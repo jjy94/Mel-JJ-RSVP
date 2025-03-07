@@ -41,6 +41,11 @@ function updateScene() {
 
     const choicesDiv = document.getElementById("choices");
     choicesDiv.innerHTML = "";
+
+    //knocking sound
+    if (currentScene === 0) {
+        document.getElementById("knock-sound").play();
+    }
     if (scene.choices) {
         scene.choices.forEach(choice => {
             const button = document.createElement("button");
