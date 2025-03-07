@@ -3,6 +3,10 @@ let responses = {};
 
 const scenes = [
     {
+        text: "T'was was a warm and peaceful night filled with the sounds of birds and crickets, when there was a sudden knock at the door."
+        // No choices - narrative only
+    },
+    {
         text: "You receive a gilded scroll from JJ and Melanie. An intimate wedding is nigh, but only the worthy may attend. Will you accept the quest?",
         choices: ["Yes, I’ll attend!", "No, I must decline"],
         key: "rsvp"
@@ -43,7 +47,7 @@ function updateScene() {
     choicesDiv.innerHTML = "";
 
     //knocking sound
-    if (currentScene === 0) {
+    if (currentScene === 1) {
         document.getElementById("knock-sound").play();
     }
     if (scene.choices) {
