@@ -3,10 +3,10 @@ let responses = {};
 
 const scenes = [
     { text: "Before our story begins, may I know your name, adventurer?", input: true, nextScene: 1, key: "name" },
-    { text: "T'was a warm, cozy night, filled only with the sounds of dogs and crickets. You were closing your book as you planned to retire for the night, when suddenly there was a knock at your door..", choices: [{ text: "Who's there?", nextScene: 2 }], image: "messenger.png" },
-    { text: "The messenger hands you gilded scroll. The scroll is from your dear friends JJ and Melanie inviting you to their wedding. The path, however, may be long and arduous. Will you accept the quest?", choices: [{ text: "Yes, I’ll attend!", nextScene: 3, key: "rsvp", value: "Yes" }, { text: "No, I must decline", nextScene: 6, key: "rsvp", value: "No" }] },
-    { text: ".. And how many of you will be attending the event? (1 if alone)", input: true, nextScene: 4, key: "guests" },
-    { text: "Before you set off, the hosts would like to know whether you have any dietary restrictions? (none if n/a)", input: true, nextScene: 5, key: "allergies" },
+    { text: "T'was a warm, cozy night, filled only with the sounds of dogs and crickets. You were closing your book as you planned to retire for the night, when suddenly there was a knock at your door..", choices: [{ text: "Who's there?", nextScene: 2 }] },
+    { text: "The messenger hands you gilded scroll. The scroll is from your dear friends JJ and Melanie inviting you to their wedding. The path, however, may be long and arduous. Will you accept the quest?", choices: [{ text: "Yes, I’ll attend!", nextScene: 3, key: "rsvp", value: "Yes" }, { text: "No, I must decline", nextScene: 6, key: "rsvp", value: "No" }], image: "messenger.png" },
+    { text: ".. And how many of you will be attending the event? (1 if alone)", input: true, nextScene: 4, key: "guests" , image: "messenger.png"},
+    { text: "Before you set off, the hosts would like to know whether you have any dietary restrictions? (none if n/a)", input: true, nextScene: 5, key: "allergies" , image: "messenger.png"},
     { text: "A bard stops you, seeking a tune for the celebration. What song do you suggest?", input: true, nextScene: 7, key: "song" },
     { text: "The scroll fades as you turn away. ‘We’ll miss you,’ whispers the wind. Farewell, adventurer, and we wish you the best wherever you may be.", end: true },
     { text: "Welcome, brave soul, to the Wedding Feast of JJ and Melanie! Your quest is complete—see you on June 07, 2025!", end: true }
