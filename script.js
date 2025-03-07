@@ -50,11 +50,10 @@ function updateScene() {
     if (scene.choices) {
         scene.choices.forEach(choice => {
             const button = document.createElement("button");
-            button.innerText = choice.text; // Fix: Use choice.text instead of choice
-            button.onclick = () => nextScene(choice.text); // Pass choice.text to nextScene
+            button.innerText = choice.text;
+            button.onclick = () => nextScene(choice.text);
             choicesDiv.appendChild(button);
         });
-        if (currentScene === 3) document.getElementById("Adv1").play();
     } else if (scene.input) {
         const input = document.createElement("input");
         input.type = "text";
@@ -63,6 +62,7 @@ function updateScene() {
         submit.innerText = "Submit";
         submit.onclick = () => nextScene(input.value);
         choicesDiv.appendChild(submit);
+        if (currentScene === 3) document.getElementById("Adv1").play(); // Moved here
     } else if (scene.end) {
         const submit = document.createElement("button");
         submit.innerText = "Finish Quest";
