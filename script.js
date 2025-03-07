@@ -32,6 +32,7 @@ function nextScene(choice) {
         if (selectedChoice) {
             if (selectedChoice.key) responses[selectedChoice.key] = selectedChoice.value;
             if (currentScene === 1) document.getElementById("knock-sound").play();
+            if (currentScene === 2) document.getElementById("Adv1").play();
             currentScene = selectedChoice.nextScene;
         }
     } else if (current.input && choice) {
