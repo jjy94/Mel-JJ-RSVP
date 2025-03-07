@@ -54,7 +54,7 @@ function updateScene() {
             button.onclick = () => nextScene(choice.text); // Pass choice.text to nextScene
             choicesDiv.appendChild(button);
         });
-        if (currentScene === 2) document.getElementById("Adv1").play();
+        if (currentScene === 3) document.getElementById("Adv1").play();
     } else if (scene.input) {
         const input = document.createElement("input");
         input.type = "text";
