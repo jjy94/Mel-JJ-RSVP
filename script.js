@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function nextScene(choice) {
     const current = scenes[currentScene];
-    if (current.choices && current.choices.length === 1 && choice === "Who’s there?") {
+    if (current.choices && current.choices.length === 1 && choice === "...") {
         document.getElementById("knock-sound").play();
     }
     if (current.key) {
