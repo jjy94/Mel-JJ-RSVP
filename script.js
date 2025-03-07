@@ -32,7 +32,6 @@ function nextScene(choice) {
         if (selectedChoice) {
             if (selectedChoice.key) responses[selectedChoice.key] = selectedChoice.value;
             if (currentScene === 1) document.getElementById("knock-sound").play();
-            if (currentScene === 2) document.getElementById("Adv1").play();
             currentScene = selectedChoice.nextScene;
         }
     } else if (current.input && choice) {
@@ -55,6 +54,7 @@ function updateScene() {
             button.onclick = () => nextScene(choice.text); // Pass choice.text to nextScene
             choicesDiv.appendChild(button);
         });
+        if (currentScene === 2) document.getElementById("Adv1").play();
     } else if (scene.input) {
         const input = document.createElement("input");
         input.type = "text";
