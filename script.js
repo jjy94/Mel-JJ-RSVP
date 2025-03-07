@@ -3,15 +3,16 @@ let responses = {};
 
 const scenes = [
     {
-        text: "T'was a warm, cozy night, filled only with the sounds of dogs and crickets.",
-        choices: ["..."]
+        text: "Before our story begins, may I know your name adventurer?",
+        input: true,
+        key: "name"
     },
     {
-        text: "You were closing your book as you planned to retire for the night, when suddenly there was a knock at your door",
+        text: "T'was a warm, cozy night, filled only with the sounds of dogs and crickets. You were closing your book as you planned to retire for the night, when suddenly there was a knock at your door",
         choices: ["Who's there?"]
     },
     {
-        text: "You receive a gilded scroll from Mel and JJ. A grand wedding feast is nigh, but only the worthy may attend. Will you accept the quest?",
+        text: "You receive a gilded scroll from your dear friends Mel and JJ. A grand wedding feast is nigh, but only the worthy may attend. Will you accept the quest?",
         choices: ["Yes, I’ll attend!", "No, I must decline"],
         key: "rsvp"
     },
@@ -24,11 +25,6 @@ const scenes = [
         text: "A bard stops you, seeking a tune for the celebration. What song do you suggest?",
         input: true,
         key: "song"
-    },
-    {
-        text: "You arrive at the wedding gates. Swear your name to the guestbook to enter!",
-        input: true,
-        key: "name"
     },
     {
         text: "Welcome, brave soul, to the Wedding Feast of Mel and JJ! Your quest is complete—see you on [Wedding Date]!",
@@ -57,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function nextScene(choice) {
     const current = scenes[currentScene];
-    if (currentScene === 0) { // Play knock sound when leaving Scene 0
+    if (currentScene === 1) { // Play knock sound when leaving Scene 0
         document.getElementById("knock-sound").play();
     }
     if (current.key) {
