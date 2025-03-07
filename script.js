@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function nextScene(choice) {
     const current = scenes[currentScene];
-    if (current.choices && current.choices.length === 1 && choice === "...") {
+    if (currentScene === 0) { // Play knock sound when leaving Scene 0
         document.getElementById("knock-sound").play();
     }
     if (current.key) {
