@@ -10,34 +10,41 @@ body {
     background-image: url('https://jjy94.github.io/Mel-JJ-RSVP/RSVP%20BG.png'); /* Your downloaded file */
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center; /* Centers the image */
+    background-position: center;
     background-attachment: fixed;
-    
-    font-family: 'Georgia', serif; /* Elegant, classic font */
-    color: #333333; /* Dark gray for readability */
+    font-family: 'Georgia', serif;
+    color: #333333;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
 }
 
-/* Game container - centered card-like area */
+/* Game container - centered card-like area with horizontal layout */
 #game-container {
-    background-color: rgba(255, 255, 255, 0.95); /* Slightly translucent white */
-    border: 2px solid #E07A5F; /* Burnt orange border */
+    display: flex;
+    flex-direction: row; /* Left: text, Right: image */
+    align-items: flex-start; /* Align tops */
+    max-width: 800px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
     border-radius: 10px;
-    padding: 30px;
-    max-width: 600px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(61, 90, 128, 0.1); /* Royal blue shadow */
+    gap: 20px; /* Space between text and image */
+}
+
+/* Text container - groups story text and choices on the left */
+#text-container {
+    flex: 2; /* Takes more space */
+    display: flex;
+    flex-direction: column; /* Stack text and choices vertically */
+    gap: 20px; /* Space between text and choices */
 }
 
 /* Story text - elegant and readable */
 #story-text {
     font-size: 1.2em;
     line-height: 1.5;
-    margin-bottom: 20px;
-    color: #3D5A80; /* Royal blue for the narrative */
+    color: #3D5A80; /* Royal blue */
 }
 
 /* Choices section */
@@ -47,10 +54,17 @@ body {
     gap: 10px;
 }
 
+/* Character image - positioned on the right */
+#character-img {
+    flex: 1; /* Takes less space */
+    max-width: 100px; /* Size constraint */
+    align-self: center; /* Vertically center within its flex space */
+}
+
 /* Buttons - wedding-themed with burnt orange and royal blue */
 button {
     background-color: #E07A5F; /* Burnt orange */
-    color: #FFFFFF; /* White text */
+    color: #FFFFFF;
     border: none;
     padding: 10px 20px;
     font-size: 1em;
@@ -67,7 +81,7 @@ button:hover {
 input[type="text"] {
     padding: 10px;
     font-size: 1em;
-    border: 1px solid #3D5A80; /* Royal blue border */
+    border: 1px solid #3D5A80;
     border-radius: 5px;
     width: 80%;
     margin-bottom: 10px;
@@ -76,15 +90,24 @@ input[type="text"] {
 
 input[type="text"]:focus {
     outline: none;
-    border-color: #E07A5F; /* Burnt orange focus */
+    border-color: #E07A5F;
     box-shadow: 0 0 5px rgba(224, 122, 95, 0.5);
 }
 
 /* Responsive design for smaller screens */
 @media (max-width: 500px) {
     #game-container {
-        padding: 20px;
+        flex-direction: column; /* Stack vertically on small screens */
+        align-items: center;
+        padding: 15px;
         margin: 10px;
+    }
+    #text-container {
+        width: 100%; /* Full width on small screens */
+    }
+    #character-img {
+        max-width: 80px; /* Smaller image */
+        margin-top: 10px; /* Space above image */
     }
     #story-text {
         font-size: 1em;
