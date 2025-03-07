@@ -16,19 +16,23 @@ document.addEventListener("DOMContentLoaded", () => {
     const gameContainer = document.createElement("div");
     gameContainer.id = "game-container";
 
-    const characterImg = document.createElement("img");
-    characterImg.id = "character-img";
-    characterImg.style.maxWidth = "100px"; // Adjust size
-    gameContainer.appendChild(characterImg);
+    const textContainer = document.createElement("div");
+    textContainer.id = "text-container";
 
     const storyText = document.createElement("p");
     storyText.id = "story-text";
-    gameContainer.appendChild(storyText);
+    textContainer.appendChild(storyText);
 
     const choicesDiv = document.createElement("div");
     choicesDiv.id = "choices";
-    gameContainer.appendChild(choicesDiv);
+    textContainer.appendChild(choicesDiv);
 
+    const characterImg = document.createElement("img");
+    characterImg.id = "character-img";
+    characterImg.style.maxWidth = "100px"; // Keep inline for now, we'll move to CSS
+
+    gameContainer.appendChild(textContainer);
+    gameContainer.appendChild(characterImg);
     document.body.appendChild(gameContainer);
     updateScene();
 });
@@ -39,10 +43,7 @@ function nextScene(choice) {
         const selectedChoice = current.choices.find(c => c.text === choice);
         if (selectedChoice) {
             if (selectedChoice.key) responses[selectedChoice.key] = selectedChoice.value;
-            if (currentScene === 1) {
-                const knockSound = document.getElementById("knock-sound");
-                if (knockSound) knockSound.play().catch(e => console.log("Knock sound failed:", e));
-            }
+            if (currentScene === 1) document.getElementById("knock-sound").play().catch(e => console.log("Knock sound failed:", e));
             currentScene = selectedChoice.nextScene;
         }
     } else if (current.input && choice) {
@@ -60,9 +61,9 @@ function updateScene() {
     const characterImg = document.getElementById("character-img");
     if (scene.image) {
         characterImg.src = scene.image;
-        characterImg.style.display = "block"; // Show image
+        characterImg.style.display = "block";
     } else {
-        characterImg.style.display = "none"; // Hide if no image
+        characterImg.style.display = "none";
     }
 
     const choicesDiv = document.getElementById("choices");
@@ -82,10 +83,7 @@ function updateScene() {
         submit.innerText = "Submit";
         submit.onclick = () => nextScene(input.value);
         choicesDiv.appendChild(submit);
-        if (currentScene === 3) {
-            const advSound = document.getElementById("Adv1");
-            if (advSound) advSound.play().catch(e => console.log("Adv1 sound failed:", e));
-        }
+        if (currentScene === 3) document.getElementById("Adv1").play().catch(e => console.log("Adv1 sound failed:", e));
     } else if (scene.end) {
         const submit = document.createElement("button");
         submit.innerText = "Finish Quest";
